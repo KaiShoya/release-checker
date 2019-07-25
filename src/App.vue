@@ -1,13 +1,16 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div class="container columns" id="app">
+    <Menu class="column is-one-quarter"></Menu>
+    <router-view class="column"></router-view>
   </div>
 </template>
 
 <script>
+import Menu from '@/components/Menu'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: { Menu }
 }
 </script>
 
