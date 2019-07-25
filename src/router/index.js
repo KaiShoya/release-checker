@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SearchArtist from '@/components/SearchArtist'
-import SearchRelease from '@/components/SearchRelease'
+import SearchArtist from '@/components/MusicBrainz/SearchArtist'
+import SearchRelease from '@/components/MusicBrainz/SearchRelease'
 
 Vue.use(Router)
 
