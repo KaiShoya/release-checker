@@ -1,0 +1,25 @@
+[debug] [2019-07-31T09:11:23.854Z] ----------------------------------------------------------------------
+[debug] [2019-07-31T09:11:23.857Z] Command:       /Users/kaishoya/.nodebrew/node/v11.15.0/bin/node /usr/local/bin/firebase serve
+[debug] [2019-07-31T09:11:23.857Z] CLI Version:   6.9.2
+[debug] [2019-07-31T09:11:23.857Z] Platform:      darwin
+[debug] [2019-07-31T09:11:23.857Z] Node Version:  v11.15.0
+[debug] [2019-07-31T09:11:23.858Z] Time:          Wed Jul 31 2019 18:11:23 GMT+0900 (Japan Standard Time)
+[debug] [2019-07-31T09:11:23.858Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-31T09:11:23.887Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-31T09:11:23.887Z] > authorizing via signed-in user
+[debug] [2019-07-31T09:11:23.888Z] [iam] checking project release-checker-51f46 for permissions ["firebase.projects.get"]
+[debug] [2019-07-31T09:11:23.889Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/release-checker-51f46:testIamPermissions  
+
+[debug] [2019-07-31T09:11:24.790Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-31T09:11:24.792Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/release-checker-51f46  
+ 
+[debug] [2019-07-31T09:11:25.546Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/kaishoya/workspace/misc/projects/php/discographyChecker/release-checker'...
+[info] 
+[debug] [2019-07-31T09:11:25.550Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/967228883409/clients/_:getWebAppConfig  
+ 
+[debug] [2019-07-31T09:11:26.122Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist
+[info] ✔  hosting: Local server: http://localhost:5000
