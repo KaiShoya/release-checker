@@ -50,13 +50,6 @@ export default {
       axios.get(url)
         .then(function (res) {
           this.results = res.data['release-groups']
-          // res.data['release-groups'].forEach((release, i) => {
-          //   console.log(
-          //     release['title'],
-          //     release['first-release-date'],
-          //     release['primary-type']
-          //   )
-          // })
         }.bind(this))
         .catch(function (err) {
           console.log(err)
