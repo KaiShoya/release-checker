@@ -12,14 +12,30 @@
     </b-field>
     <b-button @click="search">Search</b-button>
     <template>
-      <b-table :data="results" :columns="columns" detailed detail-key="name" :loading="isLoading"
-        @details-open="(row, index) => $toast.open(`Expanded ${row.user.first_name}`)"></b-table>
+      <b-table :data="results" ref="table" :loading="isLoading">
+        <template slot-scope="props">
+          <b-table-column field="name" :label="columnsVisible.name.title">
+            {{ props.row.name }}
+          </b-table-column>
+
+          <b-table-column field="id" :label="columnsVisible.id.title">
+            {{ props.row.id }}
+          </b-table-column>
+
+          <b-table-column field="add">
+            <b-button @click="add(props.row)">追加</b-button>
+          </b-table-column>
+        </template>
+      </b-table>
     </template>
   </section>
 </template>
 
 <script>
 import axios from 'axios'
+// import yorushika from '@/assets/musicbrainzYorushika.json'
+// import musicbrainz from '@/assets/musicbrainz.json'
+
 export default {
   data () {
     return {
@@ -36,22 +52,24 @@ export default {
       },
       isLoading: false,
       results: [],
-      columns: [
-        {
-          field: 'name',
-          label: 'Name'
-        },
-        {
-          field: 'id',
-          label: 'ID'
-        }
-      ]
+      // results: [
+      //   yorushika,
+      //   musicbrainz
+      // ],
+      columnsVisible: {
+        name: { title: 'アーティスト名' },
+        id: { title: 'ID' }
+      },
+      checkedRows: []
     }
   },
   methods: {
     search: function () {
+      // テーブルのローディング機能をOn
       this.isLoading = true
+      // URL作成
       let url = this.searchUrl + this.create_params()
+      // 非同期通信
       axios.get(url)
         .then(function (res) {
           this.results = res.data.artists
@@ -60,8 +78,12 @@ export default {
           console.log(err)
         })
         .finally(function () {
+          // テーブルのローディング機能をOff
           this.isLoading = false
         }.bind(this))
+    },
+    add: function (data) {
+      this.$store.commit('setArtist', data)
     },
     create_params: function (params = this.query) {
       let tmpArr = []
