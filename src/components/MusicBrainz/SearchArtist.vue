@@ -22,6 +22,10 @@
             {{ props.row.id }}
           </b-table-column>
 
+          <b-table-column field="score" :label="columnsVisible.score.title">
+            {{ props.row.score }}
+          </b-table-column>
+
           <b-table-column field="add">
             <b-button @click="add(props.row)">追加</b-button>
           </b-table-column>
@@ -58,9 +62,9 @@ export default {
       // ],
       columnsVisible: {
         name: { title: 'アーティスト名' },
-        id: { title: 'ID' }
-      },
-      checkedRows: []
+        id: { title: 'ID' },
+        score: { title: '一致度' }
+      }
     }
   },
   methods: {
