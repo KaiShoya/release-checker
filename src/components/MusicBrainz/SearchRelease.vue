@@ -5,8 +5,13 @@
     </b-field>
     <b-button @click="search">Search</b-button>
     <template>
-      <b-table :data="results" :columns="columns" detailed detail-key="name" :loading="isLoading"
-        @details-open="(row, index) => $toast.open(`Expanded ${row.user.first_name}`)"></b-table>
+      <b-table
+        :data="results"
+        :columns="columns"
+        detail-key="name"
+        :loading="isLoading"
+        @details-open="(row, index) => $toast.open(`Expanded ${row.user.first_name}`)"
+      ></b-table>
     </template>
   </section>
 </template>
@@ -23,7 +28,7 @@ export default {
       searchUrl: 'http://musicbrainz.org/ws/2/release-group/?fmt=json&',
       query: {
         type: 'album|ep',
-        artist: 'dfc6a151-3792-4695-8fda-f64723eaa788'
+        artist: this.$route.query.id
       },
       isLoading: false,
       results: [],
@@ -41,6 +46,12 @@ export default {
           label: 'タイプ'
         }
       ]
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      console.log(to.query.id)
+      this.$set(this.query, 'artist', to.query.id)
     }
   },
   methods: {
@@ -70,7 +81,6 @@ export default {
       })
       return tmpArr.join('&')
     }
-
   }
 }
 </script>
