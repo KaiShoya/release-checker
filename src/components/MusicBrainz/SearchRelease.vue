@@ -50,7 +50,6 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      console.log(to.query.id)
       this.$set(this.query, 'artist', to.query.id)
     }
   },
