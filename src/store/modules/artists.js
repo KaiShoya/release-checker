@@ -7,6 +7,9 @@ export default {
   mutations: {
     setArtist (state, artist) {
       Vue.set(state.artists, artist.id, artist)
+    },
+    deleteArtist (state, id) {
+      Vue.delete(state.artists, id)
     }
   },
   getter: {

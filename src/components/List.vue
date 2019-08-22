@@ -8,7 +8,13 @@
           </b-table-column>
 
           <b-table-column field="button">
-            <b-button tag="router-link" :to="{ path: '/release', query: { id: props.row.id }}">リリース</b-button>
+            <b-button tag="router-link" :to="{ path: '/release', query: { id: props.row.id }}" class="is-small">リリース</b-button>
+          </b-table-column>
+
+          <b-table-column field="delete">
+            <b-button @click="onClickDelete(props.row.id)" class="is-danger is-small">
+              <b-icon icon="close"></b-icon>
+            </b-button>
           </b-table-column>
         </template>
       </b-table>
@@ -21,6 +27,11 @@ export default {
   computed: {
     artists () {
       return Object.values(this.$store.state.artists.artists)
+    }
+  },
+  methods: {
+    onClickDelete: function (id) {
+      this.$store.commit('deleteArtist', id)
     }
   }
 }

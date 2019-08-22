@@ -7,6 +7,7 @@ import router from './router'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import store from './store/index.js'
+import '@mdi/font/css/materialdesignicons.css'
 
 Vue.use(Vuex)
 Vue.use(Buefy)
